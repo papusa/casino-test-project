@@ -1,0 +1,180 @@
+﻿@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+.casino-lobby {
+    color: #8CA2BA;
+    background-color: #F7F6F2;
+    margin: 0;
+}
+
+.categories-container {
+    float: left;
+    width: 300px;
+}
+
+.categories-nav {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 5px;
+}
+
+.categories-nav-title {
+    margin-left: 5px;
+    margin-top: 30px;
+}
+
+.categories-nav li, .categories-nav-title {
+    font-weight: bold;
+    padding: 15px;
+}
+
+    .categories-nav li:hover, .sort-item:hover, .games-view-panel .view-type-btn:hover, .games-list .game-item:hover {
+        background-color: #EEEEEE;
+        cursor: pointer;
+    }
+
+    .categories-nav li.selected, .sort-item.selected, .games-view-panel .view-type-btn.selected {
+        color: #FF9A75;
+    }
+
+.top-panel {
+    display: flex;
+    background-color: #FFF;
+    min-height: 40px;
+    padding: 15px 20px;
+    border-bottom: 1px solid #EEE;
+}
+
+.search-container {
+    position: relative;
+    font-size: 16px;
+}
+
+    .search-container input {
+        font-size: 12px;
+        text-indent: 32px;
+        width: 250px;
+        height: 32px;
+        background: #F7F6F2;
+        border: 1px solid #8CA2BA;
+        color: #8CA2BA;
+    }
+
+        .search-container input::-webkit-input-placeholder {
+            color: #8CA2BA;
+            font-weight: bold;
+        }
+
+        .search-container input::-moz-placeholder {
+            color: #8CA2BA;
+            font-weight: bold;
+            opacity: 1;
+        }
+
+        .search-container input:-ms-input-placeholder {
+            color: #8CA2BA;
+            font-weight: bold;
+        }
+
+    .search-container .fa-search {
+        position: absolute;
+        top: 8px;
+        left: 10px;
+        color: #474747;
+    }
+
+.games-sort-panel, .games-view-panel {
+    float: right;
+    display: flex;
+    height: 32px;
+    align-items: center;
+    margin: 0 20px;
+}
+
+    .games-sort-panel .sort-item {
+        font-weight: bold;
+        width: 150px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+
+    .games-view-panel .view-type-btn {
+        color: #8CA2BA;
+        font-size: 25px;
+        padding: 10px;
+        margin-right: 10px;
+    }
+
+.games-grid {
+    padding-top: 30px;
+    padding-bottom: 15px;
+    display: flex;
+    flex-flow: row wrap;
+    font-weight: bold;
+}
+
+    .games-grid .game-item {
+        margin: 15px;
+        font-size: 14px;
+    }
+
+        .games-grid .game-item:hover {
+            cursor: pointer;
+            opacity: 0.5;
+        }
+
+        .games-grid .game-item div {
+            background-color: #FFF;
+            height: 40px;
+            width: 210px;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            margin: 0;
+        }
+
+        .games-grid .game-item img, .games-grid .game-item .game-img-container {
+            width: 210px;
+            height: 140px;
+        }
+
+.games-list {
+    padding-top: 35px;
+    column-count: 2;
+    font-weight: bold;
+}
+
+    .games-list .game-item {
+        width: 200px;
+        padding: 5px 15px;
+    }
+
+    .games-grid div + .no-items, .games-list div + .no-items {
+        display: none;
+    }
+
+.games-content-box {
+    min-height: 82vh;
+}
+
+.pagination-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.no-items {
+    width: 75vw;
+    text-align: center;
+}
+
+.pagination-page a {
+    color: #8CA2BA !important;
+}
+
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover,
+.pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+    background-color: #8CA2BA;
+    border-color: #8CA2BA;
+    color: #FF9A75 !important;
+    font-weight: bold;
+}

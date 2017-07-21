@@ -1,0 +1,59 @@
+﻿<div>
+    <div class="top-panel">
+        <div class="search-container">
+            <span class="fa fa-search"></span>
+            <input type="text" placeholder="Find a game" ng-model="search" ng-change="$ctrl.resetPaging()"/>
+        </div>
+        <div style="flex-grow: 1;">
+            <div class="games-view-panel">
+                <div class="fa fa-th view-type-btn" ng-click="$ctrl.selectGridView()" ng-class="{'selected':$ctrl.isGridViewSelected()}"></div>
+                <div class="fa fa-bars view-type-btn" ng-click="$ctrl.selectListView()" ng-class="{'selected':!$ctrl.isGridViewSelected()}"></div>
+            </div>
+            <div class="games-sort-panel">
+                <div ng-repeat="filter in $ctrl.filters"
+                     class="sort-item"
+                     ng-click="$ctrl.sortGamesBy(filter)"
+                     ng-class="{'selected':$ctrl.isCurrentFilter(filter)}">
+                    {{filter.displayName}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="games-content-box">
+        <div class="categories-container">
+            <p class="categories-nav-title">CATEGORIES</p>
+            <categories-list></categories-list>
+        </div>
+
+        <div ng-class="$ctrl.isGridViewSelected() ? $ctrl.gridView.cssClass : $ctrl.listView.cssClass">
+            <div class="game-item"
+                 ng-repeat="game in games = ($ctrl.games |
+                filter:{categories: {categoryId: $ctrl.selectedCategoryId}} | filter:{name: search}:$ctrl.startsWith) |
+                orderGamesBy: {type: $ctrl.currentFilter.type, selectedCategoryId: $ctrl.selectedCategoryId}|
+                startFrom: ($ctrl.currentPage - 1) * $ctrl.pageSize | limitTo: $ctrl.pageSize">
+                <span class="game-img-container">
+                    <img ng-if="$ctrl.isGridViewSelected()"
+                         ng-src="{{$ctrl.getGameImage(game.gameId)}}"
+                         onerror="this.src = 'content/img/default-thumbnail.jpg'" />
+                </span>
+                <div>{{game.name}}</div>
+            </div>
+            <div ng-if="!$ctrl.isLoading" class="no-items">Sorry, currently there are no games in this category</div>
+        </div>
+    </div>
+
+    <div class="pagination-container" ng-if="games.length > $ctrl.pageSize">
+        <ul uib-pagination
+            max-size="$ctrl.numberOfPages"
+            force-ellipses="true"
+            boundary-links="true"
+            rotate="true"
+            items-per-page="$ctrl.pageSize"
+            total-items="games.length"
+            previous-text="&lsaquo;"
+            next-text="&rsaquo;"
+            first-text="&laquo;"
+            last-text="&raquo;"
+            ng-model="$ctrl.currentPage"></ul>
+    </div>
+</div>

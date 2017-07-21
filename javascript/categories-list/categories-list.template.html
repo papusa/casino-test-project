@@ -1,0 +1,7 @@
+﻿<ul class="categories-nav">
+    <li ng-repeat="category in $ctrl.categories"
+        ng-click="$ctrl.selectCategory(category.id)"
+        ng-class="{'selected': $ctrl.isSelected(category)}">
+        <span>{{category.displayName}}</span>
+    </li>
+</ul>
